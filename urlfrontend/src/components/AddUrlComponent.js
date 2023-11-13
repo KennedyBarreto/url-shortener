@@ -13,6 +13,11 @@ const AddUrlComponent = () => {
           return;
         }
 
+        if (url.substring(0,8) !== "https://"){
+          alert("Digite uma url no padrão https");
+          return;
+        }
+
         axios
           .post("http://localhost:3333/short", {origUrl: url})
           .then(res => {
