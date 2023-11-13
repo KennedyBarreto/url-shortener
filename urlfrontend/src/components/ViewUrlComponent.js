@@ -40,7 +40,7 @@ const ViewUrlComponent= () => {
             <tr key={idx}>
               <td>{url.origUrl}</td>
               <td>
-                <a onClick={()=> Teste(url.urlId)} href={`${url.origUrl}`}>{url.shortUrl}</a>
+                <a onClick={()=> Teste(url.urlId)} href={`${url.origUrl}`} target='blank'>{url.shortUrl}</a>
               </td>             
               <td>{url.clicks}</td>
             </tr>
