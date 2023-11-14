@@ -61,6 +61,11 @@ em sua máquina e um editor de código para alterar os arquivos de configuraçã
 
 1 - Clone/Copie o repositório em sua máquina 
 
+2 - Instale as dependencias
+```bash
+npm i 
+```
+
 ## :memo: Licença ##
 
 Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
