@@ -19,7 +19,7 @@ const ViewUrlComponent= () => {
         setUrls(result.data);
       };
       fetchUrlAndSetUrl();
-    }, []);
+    });
 
     async function Teste (urlid){
       try {
