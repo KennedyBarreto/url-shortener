@@ -46,10 +46,10 @@ as requisições com o Axios e o banco de dados com o MongoDB
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [Boostrap] (https://getbootstrap.com/)
+- [Boostrap](https://getbootstrap.com/)
 - [JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [ReactJS] (https://react.dev/)
-- [NodeJS] (https://nodejs.org/en)
+- [ReactJS](https://react.dev/)
+- [NodeJS](https://nodejs.org/en)
 
 ## :white_check_mark: Pré requisitos ##
 
