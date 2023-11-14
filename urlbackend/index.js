@@ -29,16 +29,36 @@ mongoose
   });
 
 // get all saved URLs 
-app.get("/all", async (req, res) => {
+app.post("/all", async (req, res) => {
  try {
- const url  = await Url.find()
- return res.status(200).json(url);
+  const { url } = req.body;
+  console.log(url)
+  let urls = await Url.findOne({ origUrl: url });
+  console.log(urls);
+  if(urls){
+    console.log("If");
+    return res.status(200).json([urls])
+    
+  } else {
+console.log("Else");
+ const url  = await Url.find().sort({ date: -1 } ).limit(1)
+ return res.status(200).json(url); }
  } catch (error) {
   console.log(error);
   throw new Error("erro")
  }
 })
-
+/*
+// Ultimo input 
+app.get("/last", async (req, res) =>{
+  try {
+    const url  = await Url.findOne()
+    return res.status(200).json(url);
+    } catch (error) {
+     console.log(error);
+     throw new Error("erro")
+    }
+}) */
 // URL shortener endpoint
 app.post("/short", async (req, res) => {
   console.log("HERE",req.body.url);
@@ -50,10 +70,11 @@ app.post("/short", async (req, res) => {
     try {
       let url = await Url.findOne({ origUrl });
       if (url) {
-        res.json(url);
-      } else {
-        const shortUrl = `${urlId}`;
+        console.log("Duplicada");
+        return res.status(200).json(url);
 
+      } else {
+        const shortUrl = `${base}/${urlId}`;
         url = new Url({
           origUrl,
           shortUrl,

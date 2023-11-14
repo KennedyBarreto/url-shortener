@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 
+
 const ViewUrlComponent= () => {
     const [urls, setUrls] = useState([]);
-
+    const campo = localStorage.getItem("url");
     useEffect(() => {
       const fetchUrlAndSetUrl = async () => {
-        const result = await axios.get("http://localhost:3333/all");
+        const result = await axios({
+  method: 'post',
+  url: "http://localhost:3333/all",
+  data: {
+   url: campo, // This is the body part
+  }
+});
+
         console.log(result.data);        
         setUrls(result.data);
       };
@@ -21,10 +29,19 @@ const ViewUrlComponent= () => {
       } catch (error) {
         console.log(error);
       }
-      
-     
+    
+    
     }
 
+    async function copyP(shortUrl) {
+      try {
+        await navigator.clipboard.writeText(shortUrl);
+        alert("Link Copiado: " + shortUrl);
+      } catch (e) { 
+     
+      }
+    }
+    
   return (
     <div>
       <table className="table">
@@ -32,7 +49,7 @@ const ViewUrlComponent= () => {
           <tr>
             <th>Url Original</th>
             <th>Url Encurtada</th>
-            <th>Clicks</th>
+            <th>Copiar Link</th>
           </tr>
         </thead>
         <tbody>
@@ -40,9 +57,9 @@ const ViewUrlComponent= () => {
             <tr key={idx}>
               <td>{url.origUrl}</td>
               <td>
-                <a onClick={()=> Teste(url.urlId)} href={`${url.origUrl}`} target='blank'>{url.shortUrl}</a>
+                <a id="link" onClick={()=> Teste(url.urlId)} href={`${url.origUrl}`} target='blank'>{url.shortUrl}</a>
               </td>             
-              <td>{url.clicks}</td>
+              <td><button onClick={()=> copyP(url.shortUrl)}> Copiar Url</button></td>
             </tr>
           ))}
         </tbody>

@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import axios from "axios";
 
 const AddUrlComponent = () => {
-    const [url, setUrl] = useState("");
+    const [url, setUrl] = useState("https://");
 
     
     const onSubmit = (e)=> {
         e.preventDefault();
 
         if (!url) {
-          alert("please enter something");
+          alert("Valor em branco");
           return;
         }
 
-        if (url.substring(0,8) !== "https://"){
-          alert("Digite uma url no padrão https");
+        if (url.substring(0,7) !== "http://" && url.substring(0,8) !== "https://"){
+          alert("Digite uma url que comece com 'http:// ou https://'");
           return;
-        }
+        } else {
+
+          localStorage.setItem("url", url);
 
         axios
           .post("http://localhost:3333/short", {origUrl: url})
@@ -26,8 +28,10 @@ const AddUrlComponent = () => {
           .catch(err => {
             console.log(err.message);
           });
-
-        setUrl("")
+        alert("Link encurtado com sucesso");
+        setUrl("https://");
+        window.location.reload();
+      }
     }
     console.log(url)
 
@@ -40,7 +44,7 @@ const AddUrlComponent = () => {
             <input
               className="w-100 border border-primary p-2 mb-2 fs-3 h-25"
               type="text"
-              placeholder="http://samplesite.com"
+              placeholder="https://www.exemplo.com"
               value={url}
               onChange={e => setUrl(e.target.value)}
             />
