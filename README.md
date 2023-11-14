@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-
+</div>
 
 <h1 align="center"> Encurtador de Url
  </h1>
@@ -34,11 +34,12 @@
 
 Encurtador de Urls feito com ReactJs & NodeJs, a estilização é feita com o framework Bootstrap,
 as requisições com o Axios e o banco de dados com o MongoDB
+
 ## :sparkles: Funcionalidades ##
 
-:heavy_check_mark: Encurta Links diversos
-:heavy_check_mark: Acompanha o número de clicks
-:heavy_check_mark: Copia o link encurtado para a área de transferência
+:heavy_check_mark: Encurta Links diversos; <br>
+:heavy_check_mark: Acompanha o número de clicks; <br>
+:heavy_check_mark: Copia o link encurtado para a área de transferência.
 
 
 ## :rocket: Tecnologias ##
