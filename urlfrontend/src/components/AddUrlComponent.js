@@ -37,26 +37,24 @@ const AddUrlComponent = () => {
 
   return (
     <div>
-      <main>
-        <section className="w-100 d-flex flex-column justify-content-center align-items-center">
-          <h1 className="mb-2 fs-1">Encurtador de Url</h1>
-          <form className="w-50" onSubmit={onSubmit}>
-            <input
-              className="w-100 border border-primary p-2 mb-2 fs-3 h-25"
-              type="text"
-              placeholder="https://www.exemplo.com"
-              value={url}
-              onChange={e => setUrl(e.target.value)}
-            />
-            <div className="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" className="btn btn-danger m-5">
-              Encurtar
-            </button>
-            </div>
-          </form>
-        </section>
-      </main>
-    </div>
+  <main>
+    <section className="container d-flex flex-column justify-content-center align-items-center">
+      <h1 className="mb-4 fs-2">Encurtador de URL</h1>
+      <form className="d-flex align-items-center w-75" onSubmit={onSubmit}>
+        <input
+          className="form-control me-2 fs-5"
+          type="text"
+          placeholder="https://www.exemplo.com"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <button type="submit" className="btn btn-primary btn-lg">
+          Encurtar
+        </button>
+      </form>
+    </section>
+  </main>
+</div>
   );
 }
 
