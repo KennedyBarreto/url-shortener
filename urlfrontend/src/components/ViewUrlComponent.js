@@ -15,7 +15,7 @@ const ViewUrlComponent= () => {
   }
 });
 
-        console.log(result.data);        
+           
         setUrls(result.data);
       };
       fetchUrlAndSetUrl();
@@ -43,28 +43,51 @@ const ViewUrlComponent= () => {
     }
     
   return (
-    <div>
-      <table className="table">
-        <thead className="table-dark">
-          <tr>
-            <th>Url Original</th>
-            <th>Url Encurtada</th>
-            <th>Copiar Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          {urls.map((url, idx) => (
-            <tr key={idx}>
-              <td>{url.origUrl}</td>
-              <td>
-                <a id="link" onClick={()=> Teste(url.urlId)} href={`${url.origUrl}`} target='blank'>{url.shortUrl}</a>
-              </td>             
-              <td><button onClick={()=> copyP(url.shortUrl)}> Copiar Url</button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container mt-">
+  <div className="row justify-content-center">
+    <div className="col-md-8">
+      {urls.map((url, idx) => (
+        <div key={idx} className="mb-3">
+          <div className="d-flex justify-content-center">
+            <div className="me-3">
+              <label htmlFor={`origUrl-${idx}`} className="form-label">Url Original:</label>
+              <input
+                id={`origUrl-${idx}`}
+                type="text"
+                className="form-control"
+                value={url.origUrl}
+                disabled
+              />
+            </div>
+            <div>
+              <label htmlFor={`shortUrl-${idx}`} className="form-label">Url Encurtada:</label>
+              <div
+                className="input-group clickable-field"
+                onClick={() => Teste(url.urlId)}
+              >
+                <a
+                  id={`shortUrl-${idx}`}
+                  href={url.shortUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {url.shortUrl}
+                </a>
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={() => copyP(url.shortUrl)}
+                >
+                  Copiar Url
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
+</div>
   );
 }
 

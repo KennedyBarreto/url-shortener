@@ -23,7 +23,7 @@ const AddUrlComponent = () => {
         axios
           .post("http://localhost:3333/short", {origUrl: url})
           .then(res => {
-            console.log(res.data);
+            
           })
           .catch(err => {
             console.log(err.message);
