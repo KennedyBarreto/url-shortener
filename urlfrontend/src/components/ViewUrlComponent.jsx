@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ViewUrlComponent= () => {
@@ -28,7 +28,7 @@ const ViewUrlComponent= () => {
     async function copyP(shortUrl) {
       try {
         await navigator.clipboard.writeText(shortUrl);
-        const notify = () => toast.success("URL copiada com sucesso!");
+        const notify = () => toast.success("URL copiada com sucesso!",);
           notify();
       } catch (e) { 
      
@@ -77,7 +77,7 @@ const ViewUrlComponent= () => {
           </div>
         </div> : null
       ))}
- <ToastContainer />
+
     </div>
   </div>
 

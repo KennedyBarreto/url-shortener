@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -15,9 +15,7 @@ const AddUrlComponent = () => {
           const notify = () => toast.error("Campo em Branco");
           notify();
           return;
-        }
-
-        if (url.substring(0,7) !== "http://" && url.substring(0,8) !== "https://"){
+        } else if (url.substring(0,7) !== "http://" && url.substring(0,8) !== "https://"){
           const notify = () => toast.error("A URL deve começar com http:// ou https://");
           notify();
           return;
@@ -61,7 +59,7 @@ const AddUrlComponent = () => {
       </form>
     </section>
   </main>
-  <ToastContainer />
+
 </div>
   );
 }
