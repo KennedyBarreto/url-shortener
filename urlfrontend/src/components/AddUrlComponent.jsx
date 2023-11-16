@@ -6,21 +6,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddUrlComponent = () => {
     const [url, setUrl] = useState("https://");
-    const notify = () => toast("Wow so easy!");
+    
     
     const onSubmit = (e)=> {
         e.preventDefault();
        
         if (!url) {
-          
+          const notify = () => toast.error("Campo em Branco");
+          notify();
           return;
         }
 
         if (url.substring(0,7) !== "http://" && url.substring(0,8) !== "https://"){
-          alert("Digite uma url que comece com 'http:// ou https://'");
+          const notify = () => toast.error("A URL deve começar com http:// ou https://");
+          notify();
           return;
         } else {
-
+          const notify = () => toast.success("URL encurtada com sucesso!");
+          notify();
           localStorage.setItem("url", url);
 
         axios
@@ -44,7 +47,7 @@ const AddUrlComponent = () => {
   <main>
     <section className="container d-flex flex-column justify-content-center align-items-center">
       <h1 className='titulo'>Encurtador de URL</h1>
-      <form className="d-flex align-items-center w-75" onClick={notify} onSubmit={onSubmit}>
+      <form className="d-flex align-items-center w-75" onSubmit={onSubmit}>
         <input
           className="form-control me-2 fs-5"
           type="text"
