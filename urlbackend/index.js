@@ -40,7 +40,7 @@ app.post("/all", async (req, res) => {
     return res.status(200).json([urls])
     
   } else {
-console.log("Else");
+
  const url  = await Url.find().sort({ date: -1 } ).limit(1)
  return res.status(200).json(url); }
  } catch (error) {
