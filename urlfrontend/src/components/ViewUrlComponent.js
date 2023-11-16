@@ -21,17 +21,8 @@ const ViewUrlComponent= () => {
       fetchUrlAndSetUrl();
     });
 
-    async function Teste (urlid){
-      try {
-        const result = await axios.get(`http://localhost:3333/find/${urlid}`);
-      console.log(result);
-      console.log(urlid);
-      } catch (error) {
-        console.log(error);
-      }
     
     
-    }
 
     async function copyP(shortUrl) {
       try {
@@ -47,10 +38,10 @@ const ViewUrlComponent= () => {
   <div className="row justify-content-center">
     <div className="col-md-8">
       {urls.map((url, idx) => (
-        <div key={idx} className="mb-3">
+        <div id="welcomeDiv"  style={{display:'none'}} key={idx} className="mt-4">
           <div className="d-flex justify-content-center">
-            <div className="me-3">
-              <label htmlFor={`origUrl-${idx}`} className="form-label">Url Original:</label>
+
+            <div className="me-4">
               <input
                 id={`origUrl-${idx}`}
                 type="text"
@@ -59,35 +50,36 @@ const ViewUrlComponent= () => {
                 disabled
               />
             </div>
+            
             <div>
-              <label htmlFor={`shortUrl-${idx}`} className="form-label">Url Encurtada:</label>
-              <div
-                className="input-group clickable-field"
-                onClick={() => Teste(url.urlId)}
-              >
                 <a
+                  className='me-4 d-inline-block p-1 text-decoration-none text-dark rounded'
                   id={`shortUrl-${idx}`}
                   href={url.shortUrl}
                   target="_blank"
                   rel="noreferrer"
+                  style={{ backgroundColor: 'white' }}
                 >
                   {url.shortUrl}
                 </a>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary rounded"
                   type="button"
                   onClick={() => copyP(url.shortUrl)}
                 >
                   Copiar Url
                 </button>
               </div>
-            </div>
+            
           </div>
+          
         </div>
+        
       ))}
     </div>
   </div>
 </div>
+
   );
 }
 

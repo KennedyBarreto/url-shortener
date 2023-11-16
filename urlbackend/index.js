@@ -85,14 +85,14 @@ app.post("/short", async (req, res) => {
 });
 
 // redirect endpoint
-app.get("/find/:urlId", async (req, res) => {
+app.get("/:urlId", async (req, res) => {
   try {
     const url = await Url.findOne({ urlId: req.params.urlId });
     console.log(url)
     if (url) {
       url.clicks++;
       url.save();
-      return res.status(200).json(url.origUrl);
+      return res.redirect(url.origUrl);
     } else res.status(404).json("Not found");
   } catch (err) {
     console.log(err);

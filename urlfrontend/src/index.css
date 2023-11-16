@@ -2,8 +2,15 @@ body, #root {
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-color: #263849;
 }
 
-body {
-  background: linear-gradient(to bottom, #ffffff, #add8e6);
+*{
+  background-color: #263849;
 }
+
+.App-container{
+  margin-top: 15%; 
+}
+
+

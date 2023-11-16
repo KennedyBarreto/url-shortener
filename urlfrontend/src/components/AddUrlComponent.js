@@ -28,18 +28,21 @@ const AddUrlComponent = () => {
           .catch(err => {
             console.log(err.message);
           });
-        alert("Link encurtado com sucesso");
+        
         setUrl("https://");
-        window.location.reload();
+        
       }
     }
+    function showDiv() {
+      document.getElementById('welcomeDiv').style.display = "block";
+   }
     console.log(url)
 
   return (
     <div>
   <main>
     <section className="container d-flex flex-column justify-content-center align-items-center">
-      <h1 className="mb-4 fs-2">Encurtador de URL</h1>
+      <h1 className="mb-4 fs-2 text-white">Encurtador de URL</h1>
       <form className="d-flex align-items-center w-75" onSubmit={onSubmit}>
         <input
           className="form-control me-2 fs-5"
@@ -48,7 +51,7 @@ const AddUrlComponent = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <button type="submit" className="btn btn-primary btn-lg">
+        <button type="submit" className="btn btn-primary btn-lg" onClick={showDiv}>
           Encurtar
         </button>
       </form>

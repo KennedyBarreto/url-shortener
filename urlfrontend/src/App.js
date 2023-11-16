@@ -4,9 +4,11 @@ import ViewUrlComponent from "./components/ViewUrlComponent";
 
 function App() {
   return (
-    <div className="App container mt-5">
+    
+    <div className="App-container">
       <AddUrlComponent />
       <ViewUrlComponent />
+      
     </div>
   );
 }
