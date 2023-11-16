@@ -13,4 +13,21 @@ body, #root {
   margin-top: 15%; 
 }
 
+p {
+  background-color:white;
+}
 
+a {
+  
+  background-color:white;
+}
+
+.titulo {
+  font-family: Proximanova,sans-serif;
+  font-size: 46px;
+  font-weight: 500;
+  letter-spacing: -.1px;
+  line-height: 54px;
+  margin-bottom: 16px;
+  color: white;
+}

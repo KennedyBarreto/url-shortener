@@ -34,31 +34,31 @@ const ViewUrlComponent= () => {
     }
     
   return (
-    <div className="container mt-">
+
+
   <div className="row justify-content-center">
-    <div className="col-md-8">
+    <div className="col-md-6">
       {urls.map((url, idx) => (
         <div id="welcomeDiv"  style={{display:'none'}} key={idx} className="mt-4">
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center me-5 d-inline-block p-1 
+          text-decoration-none text-dark rounded"
+          style={{ backgroundColor: 'white' }}>
 
-            <div className="me-4">
-              <input
-                id={`origUrl-${idx}`}
-                type="text"
-                className="form-control"
-                value={url.origUrl}
-                disabled
-              />
+            <div className="me-4 mt-2" style={{ backgroundColor: 'white' }}>
+             
+             <p>
+               {url.origUrl}
+               </p>
             </div>
             
-            <div>
+            <div style={{ backgroundColor: 'white' }}> 
                 <a
-                  className='me-4 d-inline-block p-1 text-decoration-none text-dark rounded'
+                  className='me-3 d-inline-block p-2 text rounded text-decoration-none'
                   id={`shortUrl-${idx}`}
                   href={url.shortUrl}
                   target="_blank"
                   rel="noreferrer"
-                  style={{ backgroundColor: 'white' }}
+
                 >
                   {url.shortUrl}
                 </a>
@@ -78,7 +78,6 @@ const ViewUrlComponent= () => {
       ))}
     </div>
   </div>
-</div>
 
   );
 }

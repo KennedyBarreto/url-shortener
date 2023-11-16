@@ -42,7 +42,7 @@ const AddUrlComponent = () => {
     <div>
   <main>
     <section className="container d-flex flex-column justify-content-center align-items-center">
-      <h1 className="mb-4 fs-2 text-white">Encurtador de URL</h1>
+      <h1 className='titulo'>Encurtador de URL</h1>
       <form className="d-flex align-items-center w-75" onSubmit={onSubmit}>
         <input
           className="form-control me-2 fs-5"
