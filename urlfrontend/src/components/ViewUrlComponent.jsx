@@ -38,17 +38,19 @@ const ViewUrlComponent= () => {
 
   <div className="row justify-content-center">
     <div className="col-md-6">
+
       {urls.map((url, idx) => (
-        <div id="welcomeDiv"  style={{display:'none'}} key={idx} className="mt-4">
+
+        urls ? <div id="welcomeDiv"  style={{display:'block'}} key={idx} className="mt-4">
+
           <div className="d-flex justify-content-center me-5 d-inline-block p-1 
           text-decoration-none text-dark rounded"
           style={{ backgroundColor: 'white' }}>
 
             <div className="me-4 mt-2" style={{ backgroundColor: 'white' }}>
-             
-             <p>
-               {url.origUrl}
-               </p>
+              <p>
+                {url.origUrl}
+              </p>
             </div>
             
             <div style={{ backgroundColor: 'white' }}> 
@@ -70,12 +72,10 @@ const ViewUrlComponent= () => {
                   Copiar Url
                 </button>
               </div>
-            
           </div>
-          
-        </div>
-        
+        </div> : null
       ))}
+
     </div>
   </div>
 

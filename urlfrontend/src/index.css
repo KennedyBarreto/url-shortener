@@ -5,16 +5,18 @@ body, #root {
   background-color: #263849;
 }
 
-*{
-  background-color: #263849;
-}
+
 
 .App-container{
-  margin-top: 15%; 
+
 }
 
 p {
+  max-width: 18ch;
   background-color:white;
+  white-space: nowrap;
+        overflow:hidden;
+        text-overflow: ellipsis;
 }
 
 a {

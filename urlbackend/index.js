@@ -41,7 +41,7 @@ app.post("/all", async (req, res) => {
     
   } else {
 
- const url  = await Url.find().sort({ date: -1 } ).limit(1)
+ const url  = await Url.find().sort({ date: -1} ).limit(1)
  return res.status(200).json(url); }
  } catch (error) {
   console.log(error);
