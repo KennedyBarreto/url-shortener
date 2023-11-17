@@ -28,7 +28,7 @@ const ViewUrlComponent= () => {
     async function copyP(shortUrl) {
       try {
         await navigator.clipboard.writeText(shortUrl);
-        const notify = () => toast.success("URL copiada com sucesso!",);
+        const notify = () => toast.info("URL copiada com sucesso!",);
           notify();
       } catch (e) { 
      
@@ -38,24 +38,24 @@ const ViewUrlComponent= () => {
   return (
 
 
-  <div className="row justify-content-center">
-    <div className="col-md-6">
-
+  <div id="urls" className="row justify-content-center col-md-6">
+   
       {urls.map((url, idx) => (
 
-        urls ? <div id="welcomeDiv"  style={{display:'block'}} key={idx} className="mt-4">
+        urls ? <div id="resultado"  style={{display:'block', backgroundColor: 'white' }}
+        key={idx} className="d-flex justify-content-center mt-4 me-5 d-inline-block p-1 
+        text-decoration-none text-dark rounded" >
 
-          <div className="d-flex justify-content-center me-5 d-inline-block p-1 
-          text-decoration-none text-dark rounded"
-          style={{ backgroundColor: 'white' }}>
+        
 
-            <div className="me-4 mt-2" style={{ backgroundColor: 'white' }}>
+            <div id="OrigUrl" className="me-3 d-inline-block p-2 text rounded text-decoration-none'" 
+            style={{ backgroundColor: 'white' }}>
               <p>
                 {url.origUrl}
               </p>
             </div>
             
-            <div style={{ backgroundColor: 'white' }}> 
+            <div id="ShortUrl" style={{ backgroundColor: 'white' }}> 
                 <a
                   className='me-3 d-inline-block p-2 text rounded text-decoration-none'
                   id={`shortUrl-${idx}`}
@@ -66,20 +66,21 @@ const ViewUrlComponent= () => {
                 >
                   {url.shortUrl}
                 </a>
-                <button
-                  className="btn btn-primary rounded"
-                  type="button"
-                  onClick={() => copyP(url.shortUrl)}
-                >
-                  Copiar Url
-                </button>
-              </div>
-          </div>
+                </div>
+                <div id="copiar" class>
+                  <button
+                    className="btn btn-dark rounded fixed"
+                    type="button"
+                    onClick={() => copyP(url.shortUrl)}
+                  >
+                    Copiar Url
+                  </button>
+                </div>
         </div> : null
       ))}
 
     </div>
-  </div>
+  
 
   );
 }

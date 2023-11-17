@@ -19,7 +19,13 @@ const AddUrlComponent = () => {
           const notify = () => toast.error("A URL deve começar com http:// ou https://");
           notify();
           return;
-        } else {
+        }
+          else if (url.length<=8){
+          const notify = () => toast.error("Digite uma URL para começar!");
+          notify();
+          return;
+        } 
+          else {
           const notify = () => toast.success("URL encurtada com sucesso!");
           notify();
           localStorage.setItem("url", url);
@@ -44,7 +50,8 @@ const AddUrlComponent = () => {
     <div>
   <main>
     <section className="container d-flex flex-column justify-content-center align-items-center">
-      <h1 className='titulo'>Encurtador de URL</h1>
+      <h1 className='titulo'>INNOVLINK</h1>
+      <h2 className='subtitulo'>Encurte seus links com rapidez</h2>
       <form className="d-flex align-items-center w-75" onSubmit={onSubmit}>
         <input
           className="form-control me-2 fs-5"
@@ -53,7 +60,7 @@ const AddUrlComponent = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <button type="submit" className="btn btn-primary btn-lg">
+        <button type="submit" className="btn btn-dark btn-lg">
           Encurtar
         </button>
       </form>
