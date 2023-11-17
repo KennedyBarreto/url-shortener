@@ -26,6 +26,7 @@ a {
 }
 
 .titulo {
+  margin-top: 25vh;
   font-family: Proximanova,sans-serif;
   font-size: 46px;
   font-weight: 500;
