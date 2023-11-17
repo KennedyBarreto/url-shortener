@@ -11,8 +11,8 @@ function App() {
     <div className="App-container">
       <AddUrlComponent />
       <ViewUrlComponent />
-      <FooterComponent/>
       <ToastContainer theme="colored"/>
+      <FooterComponent/>
     </div>
   );
 }

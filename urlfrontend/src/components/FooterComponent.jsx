@@ -2,12 +2,14 @@ const FooterComponent = () => {
 
     return (
         <footer>
-<div class="contato">
-        <a href="#"><img src="logo.png"/></a>
-        <a href="#" target="blank"><img src="logo.png"/></a>
-        <a href="#"><img src="logo.png"/></a>
-        <h4>Todos os direitos reservados</h4>
+<div className="contato">
+    <div className="imagens">
+        <img src="innov.png"/>
+       <a href="#" target="_blank"><img src="dpg.png"/></a> 
+       <a href="#" target="_blank"><img src="zap.png"/></a>
+       </div>
 </div>
+<div className="rodape"><h4>Todos os direitos reservados 2023</h4></div>
 </footer>
 )}
 

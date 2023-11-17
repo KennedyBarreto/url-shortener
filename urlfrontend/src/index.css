@@ -27,7 +27,7 @@ body, #root {
 	height: 100vh;
 }
 
-
+@media only screen and (min-width: 768px) {
 
 p {
   font-family: Poppins;
@@ -67,7 +67,7 @@ a {
 }
 
 .contato{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -81,17 +81,12 @@ a {
    font-size: 25px;
 }
 
-.contato h4{
-  color: white;
-  font-size: 20px;
-  background-color: transparent;
-  margin-bottom: 0;
-}
 
 img {
-  width:60px;
-  height:60px;
+  width:75px;
+  height:75px;
   border-radius:10px;
+  padding: 5px;
 }
 
 #urls {
@@ -114,4 +109,20 @@ img {
   background-color: white;
   display:flex;justify-content:center;align-items:center;
   margin-left: 35px;
+}
+
+.rodape {
+  height: 20px;
+  position: fixed;
+   bottom: 0;
+   width: 100%;
+}
+
+.rodape h4{
+  font-family: Poppins;
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  text-align: center;
+}
 }
