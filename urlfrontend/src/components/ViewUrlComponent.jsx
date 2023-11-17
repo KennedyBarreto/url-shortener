@@ -42,22 +42,22 @@ const ViewUrlComponent= () => {
    
       {urls.map((url, idx) => (
 
-        urls ? <div id="resultado"  style={{display:'block', backgroundColor: 'white' }}
+        urls ? <div id="resultado"  style={{ backgroundColor: 'white' }}
         key={idx} className="d-flex justify-content-center mt-4 me-5 d-inline-block p-1 
         text-decoration-none text-dark rounded" >
 
         
 
-            <div id="OrigUrl" className="me-3 d-inline-block p-2 text rounded text-decoration-none'" 
+            <div id="OrigUrl" className="me-3 d-inline-block p-2 text  text-decoration-none'" 
             style={{ backgroundColor: 'white' }}>
-              <p>
+              <p className="text-center">
                 {url.origUrl}
               </p>
             </div>
             
             <div id="ShortUrl" style={{ backgroundColor: 'white' }}> 
                 <a
-                  className='me-3 d-inline-block p-2 text rounded text-decoration-none'
+                  className='me-3 d-inline-block p-2 text rounded text-decoration-none '
                   id={`shortUrl-${idx}`}
                   href={url.shortUrl}
                   target="_blank"
@@ -67,7 +67,7 @@ const ViewUrlComponent= () => {
                   {url.shortUrl}
                 </a>
                 </div>
-                <div id="copiar" class>
+                <div id="copiar">
                   <button
                     className="btn btn-dark rounded fixed"
                     type="button"

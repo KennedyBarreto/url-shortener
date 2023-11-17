@@ -31,7 +31,7 @@ body, #root {
 
 p {
   font-family: Poppins;
-  max-width: 30ch;
+  max-width: 20ch;
   background-color:white;
   white-space: nowrap;
         overflow:hidden;
@@ -103,14 +103,15 @@ img {
   padding: 8px;
 }
 
-#OrigUrl {
+.text-center {
   margin-top: 12px;
 }
 
 #ShortUrl {
-  margin-top: 12px;
+  display:flex;justify-content:center;align-items:center;
 }
 #copiar {
-  margin-top: 12px;
+  background-color: white;
+  display:flex;justify-content:center;align-items:center;
   margin-left: 35px;
 }
