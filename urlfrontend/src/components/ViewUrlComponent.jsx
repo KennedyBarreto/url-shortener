@@ -28,7 +28,7 @@ const ViewUrlComponent= () => {
     async function copyP(shortUrl) {
       try {
         await navigator.clipboard.writeText(shortUrl);
-        const notify = () => toast.info("URL copiada com sucesso!",);
+        const notify = () => toast.success("URL copiada para área de transferencia!",);
           notify();
       } catch (e) { 
      
