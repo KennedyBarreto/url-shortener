@@ -1,62 +1,44 @@
+/* Fontes */
 @font-face {
   font-family: 'TimeBurner';
   src: url('./fonts/TimeBurner.woff2') format('woff2'),
-      url('./fonts/TimeBurner.woff') format('woff');
+    url('./fonts/TimeBurner.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 
 @font-face {
   font-family: 'Poppins';
   src: url('./fonts/Poppins-Regular.woff2') format('woff2'),
-      url('./fonts/Poppins-Regular.woff') format('woff');
+    url('./fonts/Poppins-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 
 body, #root {
   background-color: #0e0d0d;
   opacity: 1;
   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #0e0d0d 11px ),
   repeating-linear-gradient( #16161755, #161617 ); 
-
 	height: 100vh;
 }
 
-/*@media only screen and (min-width: 768px) { */
-
-p {
-  font-family: Poppins;
-  max-width: 20ch;
-  background-color:white;
-  white-space: nowrap;
-        overflow:hidden;
-        text-overflow: ellipsis;
-}
-
-a {
-  
-  background-color:white;
-}
-
 .titulo {
-  margin-top: 25vh;
-  font-family: TimeBurner,sans-serif;
-  font-size: 70px;
+  margin-top: 25vh; /* Ajuste o valor conforme necessário */
+  font-family: TimeBurner, sans-serif;
+  font-size: 70px; /* Utilizando a unidade vw (viewport width) para tornar o texto responsivo */
   font-weight: 500;
-  letter-spacing: -.1px;
-  line-height: 54px;
+  letter-spacing: -0.1px;
+  line-height: 1.2; /* Ajuste conforme necessário para o espaçamento entre linhas */
   margin-bottom: 16px;
   color: white;
-  text-shadow: 2px 2px 2px black ;
+  text-shadow: 2px 2px 2px black;
 }
 
 .subtitulo {
-   font-family: Poppins;
+  font-family: Poppins;
   font-size: 25px;
   font-weight: 500;
   letter-spacing: -.1px;
@@ -66,6 +48,62 @@ a {
   text-shadow: 2px 2px 2px black ;
 }
 
+/* Div e Textos dos resultados */
+p {
+  font-family: Poppins;
+  max-width: 26ch;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+a {
+  margin-top: 12px;
+  font-family: Poppins;
+}
+
+.text-center {
+  margin-top: 12px;
+}
+
+.UrlResult{
+border-radius: 10px;
+background-color: white;
+margin: 10px;
+}
+
+.ShortUrl {
+  display:flex;justify-content:center;align-items:center;
+}
+
+.ShortUrl p{
+  max-width: 26ch;
+}
+
+.OrigUrl {
+  display:flex;justify-content:center;align-items:center;
+}
+
+/* Botão de copiar */
+.copiar {
+  padding: 7px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 7px;
+  background-color: #23272b;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copiar:hover {
+  background-color: #343a40;
+}
+
+.qrcode {
+  margin: 2px
+}
+/* Footer e imagens*/
 .contato{
   position: absolute;
   bottom: 0;
@@ -75,47 +113,17 @@ a {
   padding: 10px;
 }
 .contato a{
-   text-decoration: none;
-   background-color: transparent;
-   padding: 10px;
-   font-size: 25px;
-}
-
-
-img {
-  width:75px;
-  height:75px;
-  border-radius:10px;
-  padding: 5px;
-}
-
-#urls {
-  margin: 40px 50px 0px -50px;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 8px;
-  padding: 8px;
-}
-
-.text-center {
-  margin-top: 12px;
-}
-
-#ShortUrl {
-  display:flex;justify-content:center;align-items:center;
-}
-#copiar {
-  background-color: white;
-  display:flex;justify-content:center;align-items:center;
-  margin-left: 35px;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px;
+  font-size: 25px;  
 }
 
 .rodape {
   height: 20px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
 }
 
 .rodape h4{
@@ -125,12 +133,108 @@ img {
   background-color: transparent;
   text-align: center;
 }
-.imagens {
-margin-bottom:-20px;
+
+.contato {
+margin-bottom:-30px;
 }
-.zap
-{
+
+.logo1 img {
+  width:75px;
+  height:75px;
+  border-radius:10px;
+  padding: 5px;
+}
+.logo2 img {
   width:110px;
   height:75px;
+  border-radius:10px;
+  padding: 5px;
 }
-/*} */
+
+
+/* Media query para smartphones */
+@media only screen and (max-width: 768px) {
+  .titulo {
+    font-size: 40px; 
+  }
+  .subtitulo{
+    font-size: 15px;
+  }
+  p {
+    max-width: 6ch;
+    font-size: 10px;
+  }
+  .rodape h4{
+    font-size: 10px;
+  }
+
+    .logo1 img {
+      width:60px;
+      height:60px;
+      border-radius:10px;
+      padding: 5px;
+    }
+    .logo2 img {
+      width:90px;
+      height:60px;
+      border-radius:10px;
+      padding: 5px;
+    }
+  .copiar {
+    font-size: 10px;
+  }
+  a {
+    font-size: 12px;
+  }
+
+  .ShortUrl p{
+    max-width: 8ch;
+  }
+}
+
+/* Media query para tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .titulo {
+    font-size: 60px; 
+  }
+  .subtitulo{
+    font-size: 20px;
+  }
+  p {
+    max-width: 15ch;
+    font-size: 12px;
+  }
+  .rodape h4{
+    font-size: 15px;
+  }
+
+    .logo1 img {
+      width:70px;
+      height:70px;
+      border-radius:10px;
+      padding: 5px;
+    }
+    .logo2 img {
+      width:100px;
+      height:70px;
+      border-radius:10px;
+      padding: 5px;
+    }
+  .copiar {
+    font-size: 12px;
+  }
+
+  .ShortUrl p{
+    max-width: 18ch;
+  }
+}
+ /* Media query para laptops */ 
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  p {
+    max-width: 16ch;
+    font-size: 12px;
+  }
+  #ShortUrl p{
+    max-width: 18ch;
+  }
+}

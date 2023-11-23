@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     
-    <div className="App-container">
+    <div className="App">
       <AddUrlComponent />
       <ViewUrlComponent />
       <ToastContainer theme="colored"/>

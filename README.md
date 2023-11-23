@@ -1,7 +1,7 @@
 <div align="center" id="top"> 
 </div>
 
-<h1 align="center"> Encurtador de Url
+<h1 align="center"> Innovlink - Encurtador de Url
  </h1>
 
 <p align="center">
@@ -11,7 +11,7 @@
 
   <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/KennedyBarreto/url-shortener?color=af0fff">
 
-  <img alt="Licença" src="https://img.shields.io/github/license/KennedyBarreto/url-shortener?color=af0fff">
+ 
 
 
 </p>
@@ -39,7 +39,9 @@ as requisições com o Axios e o banco de dados com o MongoDB
 
 :heavy_check_mark: Encurta Links diversos; <br>
 :heavy_check_mark: Acompanha o número de clicks; <br>
-:heavy_check_mark: Copia o link encurtado para a área de transferência.
+:heavy_check_mark: Copia o link encurtado para a área de transferência;<br>
+:heavy_check_mark: Gera um QR Code baixável com redirecionamento para o link<br>
+
 
 
 ## :rocket: Tecnologias ##
@@ -78,9 +80,9 @@ cd urlfrontend
 npm start
 ```
 
-## :memo: Licença ##
+<!--  ## :memo: Licença ##
 
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes. -->
 
 
 Feito com :heart: por <a href="https://github.com/KennedyBarreto" target="_blank">Kennedy Barreto</a>

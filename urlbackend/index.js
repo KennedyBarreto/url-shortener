@@ -47,13 +47,13 @@ app.post("/all", async (req, res) => {
   console.log(error);
   throw new Error("erro")
  }
-})
+})  
 
 // URL shortener endpoint
 app.post("/short", async (req, res) => {
   console.log("HERE",req.body.url);
   const { origUrl } = req.body;
-  const base = `http://localhost:3333`;
+  const base = process.env.DOMAIN_URL
 
   const urlId = shortid.generate();
   if (utils.validateUrl(origUrl)) {

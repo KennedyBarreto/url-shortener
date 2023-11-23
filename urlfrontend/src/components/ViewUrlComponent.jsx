@@ -2,86 +2,123 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import {QRCodeCanvas} from 'qrcode.react';
+import { useRef } from "react";
 
 const ViewUrlComponent= () => {
+
+  const canvasRef = useRef();
+  const handleButtonClicked = () => {
+    const canvas = canvasRef.current.children[0]?.children[0];
+    const pngFile = canvas.toDataURL("image/png");
+
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "QrCode";
+    downloadLink.href = `${pngFile}`;
+    downloadLink.click();
+  };
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const [urls, setUrls] = useState([]);
     const campo = localStorage.getItem("url");
     useEffect(() => {
       const fetchUrlAndSetUrl = async () => {
         const result = await axios({
-  method: 'post',
-  url: "http://localhost:3333/all",
-  data: {
-   url: campo, // This is the body part
-  }
+    method: 'post',
+    url: "http://localhost:3333/all",
+    data: {
+      url: campo
+          }
 });
 
-           
-        setUrls(result.data);
+  setUrls(result.data);
+
       };
       fetchUrlAndSetUrl();
     });
 
-    
-    
-
-    async function copyP(shortUrl) {
+    const copyToClipboard = async (shortUrl) => {
       try {
         await navigator.clipboard.writeText(shortUrl);
-        const notify = () => toast.success("URL copiada para área de transferencia!",);
-          notify();
-      } catch (e) { 
-     
+        toast.success('URL copiada para a área de transferência!');
+      } catch (error) {
+        console.error('Erro ao copiar:', error);
       }
-    }
+    };
     
   return (
 
+  <div className="UrlResult container justify-content-center align-items-center w-50">
 
-  <div id="urls" className="row justify-content-center col-md-6">
-   
       {urls.map((url, idx) => (
 
-        urls ? <div id="resultado"  style={{ backgroundColor: 'white' }}
-        key={idx} className="d-flex justify-content-center mt-4 me-5 d-inline-block p-1 
-        text-decoration-none text-dark rounded" >
+        urls ? <div id="resultado"
+        key={idx} className="container d-flex flex-row justify-content-center align-items-center">
 
-        
-
-            <div id="OrigUrl" className="me-3 d-inline-block p-2 text  text-decoration-none'" 
-            style={{ backgroundColor: 'white' }}>
+            <div id="OrigUrl" className="OrigUrl p-2 text text-decoration-none">
               <p className="text-center">
                 {url.origUrl}
               </p>
             </div>
             
-            <div id="ShortUrl" style={{ backgroundColor: 'white' }}> 
+            <div id="ShortUrl" className="ShortUrl container d-flex flex-row justify-content-center
+            align-items-center p-2 text text-decoration-none" > 
                 <a
-                  className='me-3 d-inline-block p-2 text rounded text-decoration-none '
+                  className='text rounded text-decoration-none '
                   id={`shortUrl-${idx}`}
                   href={url.shortUrl}
                   target="_blank"
                   rel="noreferrer"
-
-                >
+                > <p>
                   {url.shortUrl}
+                  </p>
                 </a>
                 </div>
-                <div id="copiar">
+
+                <div className='copy'>
                   <button
-                    className="btn btn-dark rounded fixed"
+                    className="copiar"
                     type="button"
-                    onClick={() => copyP(url.shortUrl)}
+                    onClick={() => copyToClipboard(url.shortUrl)}
                   >
-                    Copiar Url
+                    Copiar
                   </button>
                 </div>
+                <div className='qrcode'>
+                <button className="copiar" onClick={handleShow}>
+        QR
+      </button>
+      </div>
+      
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>QR Code</Modal.Title>
+        </Modal.Header>
+        <Modal.Body ><div ref={canvasRef}>
+        <div className="container d-flex flex-row justify-content-center
+            align-items-center p-2 text text-decoration-none">
+          <QRCodeCanvas value={url.shortUrl} />
+        </div>
+      </div></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Fechar
+          </Button>
+          <Button variant="primary" onClick={handleButtonClicked}>
+            Salvar Imagem
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
         </div> : null
       ))}
 
     </div>
   
-
   );
 }
 
