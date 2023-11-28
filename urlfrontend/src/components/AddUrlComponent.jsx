@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddUrlComponent = () => {
     const [url, setUrl] = useState("https://");
-    const [title, setTitle] = useState();
+    const [title, setTitle] = useState(); //novo state de teste pro titulo
     
     
     const onSubmit = (e)=> {
@@ -32,7 +32,7 @@ const AddUrlComponent = () => {
           localStorage.setItem("url", url);
 
         axios
-          .post("http://localhost:3333/short", {origUrl: url, shortTitle: title})
+          .post("http://localhost:3333/short", {origUrl: url, shortTitle: title}) //add o parametro title na chamada do endpoint
           .then(res => {
             
           })

@@ -62,7 +62,7 @@ if (shortTitle === undefined) {
 } else {
   urlId = shortTitle;
   console.log(urlId);
-}
+} 
   if (utils.validateUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });
