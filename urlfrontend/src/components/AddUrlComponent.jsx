@@ -63,9 +63,9 @@ const AddUrlComponent = () => {
         />
 
 <input
-          className="form-control me-2 fs-5"
+          className="form-control me-2 fs-5 w-50"
           type="text"
-          placeholder="MeuLink"
+          placeholder="Url personalizada (opcional)"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
