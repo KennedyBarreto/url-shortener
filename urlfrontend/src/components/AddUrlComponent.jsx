@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddUrlComponent = () => {
     const [url, setUrl] = useState("https://");
+    const [title, setTitle] = useState();
     
     
     const onSubmit = (e)=> {
@@ -31,7 +32,7 @@ const AddUrlComponent = () => {
           localStorage.setItem("url", url);
 
         axios
-          .post("http://localhost:3333/short", {origUrl: url})
+          .post("http://localhost:3333/short", {origUrl: url, shortTitle: title})
           .then(res => {
             
           })
@@ -59,6 +60,14 @@ const AddUrlComponent = () => {
           placeholder="https://www.exemplo.com"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+        />
+
+<input
+          className="form-control me-2 fs-5"
+          type="text"
+          placeholder="MeuLink"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <button type="submit" className="btn btn-dark btn-lg">
           Encurtar

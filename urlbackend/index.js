@@ -50,12 +50,19 @@ app.post("/all", async (req, res) => {
 })  
 
 // URL shortener endpoint
-app.post("/short", async (req, res) => {
-  console.log("HERE",req.body.url);
-  const { origUrl } = req.body;
-  const base = process.env.DOMAIN_URL
+  app.post("/short", async (req, res) => {
+    console.log("HERE",req.body.url);
+    const { origUrl, shortTitle } = req.body;
+    const base = process.env.DOMAIN_URL
+    let urlId; // Declarada fora do escopo do if/else
 
-  const urlId = shortid.generate();
+if (shortTitle === undefined) {
+  urlId = shortid.generate();
+  console.log(urlId);
+} else {
+  urlId = shortTitle;
+  console.log(urlId);
+}
   if (utils.validateUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });
@@ -64,7 +71,7 @@ app.post("/short", async (req, res) => {
         return res.status(200).json(url);
 
       } else {
-        const shortUrl = `${base}/${urlId}`;
+        const shortUrl = `${base}/${urlId}`; //
         url = new Url({
           origUrl,
           shortUrl,
