@@ -23,8 +23,10 @@ const ViewUrlComponent= () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     const [urls, setUrls] = useState([]);
     const campo = localStorage.getItem("url");
+
     useEffect(() => {
       const fetchUrlAndSetUrl = async () => {
         const result = await axios({
@@ -54,10 +56,10 @@ const ViewUrlComponent= () => {
 
   <div className="UrlResult container justify-content-center align-items-center w-50">
 
-      {urls.map((url, idx) => (
+      {urls.map((url) => (
 
         urls ? <div id="resultado"
-        key={idx} className="container d-flex flex-row justify-content-center align-items-center">
+         className="container d-flex flex-row justify-content-center align-items-center">
 
             <div id="OrigUrl" className="OrigUrl p-2 text text-decoration-none">
               <p className="text-center">
@@ -69,7 +71,7 @@ const ViewUrlComponent= () => {
             align-items-center p-2 text text-decoration-none" > 
                 <a
                   className='text rounded text-decoration-none '
-                  id={`shortUrl-${idx}`}
+                  
                   href={url.shortUrl}
                   target="_blank"
                   rel="noreferrer"
