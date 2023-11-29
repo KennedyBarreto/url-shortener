@@ -24,7 +24,6 @@ const ViewUrlComponent= () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [urlChange, SetUrlChange] = useState(false);
     const [urls, setUrls] = useState([]);
     const campo = localStorage.getItem("url");
 
