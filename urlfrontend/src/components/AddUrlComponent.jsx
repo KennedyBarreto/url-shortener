@@ -65,12 +65,25 @@ const AddUrlComponent = () => {
         />
 
 <input
-          className="form-control me-2 fs-5 w-50"
-          type="text"
-          placeholder="Url personalizada (opcional)"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+  className="form-control me-2 fs-5 w-50"
+  type="text"
+  placeholder="Titulo (opcional)"
+  value={title}
+  title="Máximo 15 caracteres, apenas letras, números e traços"
+  onChange={(e) => {
+    const inputValue = e.target.value;
+
+    // Aplicando regex para permitir apenas letras, números e "-"
+    const filteredValue = inputValue.replace(/[^A-Za-z0-9-]/g, '');
+
+    // Limitando o tamanho máximo para 15 caracteres
+    const trimmedValue = filteredValue.slice(0, 15);
+
+    // Atualizando o estado com o valor filtrado e limitado
+    setTitle(trimmedValue);
+  }}
+/>
+
         <button type="submit" className="btn btn-dark btn-lg">
           Encurtar
         </button>
