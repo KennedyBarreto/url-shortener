@@ -56,7 +56,7 @@ app.post("/all", async (req, res) => {
     const base = process.env.DOMAIN_URL
     let urlId; // Declarada fora do escopo do if/else
 
-if (shortTitle === undefined) {
+if (!shortTitle) {
   urlId = shortid.generate();
   console.log(urlId);
 } else {
