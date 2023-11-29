@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from "axios"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,9 +6,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {QRCodeCanvas} from 'qrcode.react';
 import { useRef } from "react";
+import { BooleanContext } from '../context/StateContext';
 
 const ViewUrlComponent= () => {
-
+  const { booleanValue } = useContext(BooleanContext);
   const canvasRef = useRef();
   const handleButtonClicked = () => {
     const canvas = canvasRef.current.children[0]?.children[0];
@@ -23,7 +24,7 @@ const ViewUrlComponent= () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const [urlChange, SetUrlChange] = useState(false);
     const [urls, setUrls] = useState([]);
     const campo = localStorage.getItem("url");
 
@@ -41,7 +42,8 @@ const ViewUrlComponent= () => {
 
       };
       fetchUrlAndSetUrl();
-    });
+    },[booleanValue]);
+console.log(urls);
 
     const copyToClipboard = async (shortUrl) => {
       try {
@@ -56,10 +58,10 @@ const ViewUrlComponent= () => {
 
   <div className="UrlResult container justify-content-center align-items-center w-50">
 
-      {urls.map((url) => (
+      {urls.map((url, idx) => (
 
         urls ? <div id="resultado"
-         className="container d-flex flex-row justify-content-center align-items-center">
+        key={idx} className="container d-flex flex-row justify-content-center align-items-center">
 
             <div id="OrigUrl" className="OrigUrl p-2 text text-decoration-none">
               <p className="text-center">

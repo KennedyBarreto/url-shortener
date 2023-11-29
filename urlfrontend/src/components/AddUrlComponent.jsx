@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BooleanContext } from '../context/StateContext';
 
 
 const AddUrlComponent = () => {
     const [url, setUrl] = useState("https://");
     const [title, setTitle] = useState(); //novo state de teste pro titulo
-    
+    const { toggleBooleanValue } = useContext(BooleanContext);
     
     const onSubmit = (e)=> {
+      toggleBooleanValue();
         e.preventDefault();
        
         if (!url) {
