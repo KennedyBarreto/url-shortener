@@ -107,6 +107,24 @@ app.get("/:urlId", async (req, res) => {
   }
 });
 
+app.post('/check-url', async (req, res) => {
+  const { urlId } = req.body;
+
+  try {
+    const existingUrl = await Url.findOne({ urlId });
+
+    if (existingUrl) {
+      return res.status(400).json({ error: 'URL já existe' });
+    }
+
+    return res.status(200).json({ message: 'URL disponível' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+});
+
+
 // Port Listenning on 3333
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
