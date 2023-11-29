@@ -25,9 +25,11 @@ const ViewUrlComponent= () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [urls, setUrls] = useState([]);
+    const [mounted, setMounted] = useState(false);
     const campo = localStorage.getItem("url");
 
     useEffect(() => {
+
       const fetchUrlAndSetUrl = async () => {
         const result = await axios({
     method: 'post',
@@ -38,10 +40,10 @@ const ViewUrlComponent= () => {
 });
 
   setUrls(result.data);
-
+  setMounted(true);
       };
       fetchUrlAndSetUrl();
-    },[booleanValue]);
+    },[booleanValue, mounted]);
 console.log(urls);
 
     const copyToClipboard = async (shortUrl) => {
