@@ -3,31 +3,22 @@ import React from 'react';
 const FooterComponent = () => {
   return (
     <footer>
-      <div id="footer"> 
-
-        <div>
-          <img src="logo-innovtech.png" alt="InnovTech Logo" />
-          </div>
-
-          <div>
-          <a href="https://www.grupodpg.com.br/" target="_blank" rel="noopener noreferrer">
-            <img src="logo-dpg.png" alt="DPG Logo" />
+      <div className="contato container d-flex flex-row justify-content-center align-items-center">
+        <div className="logo1">
+          <img src="innov.png" alt="InnovTech Logo" />
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <img src="dpg.png" alt="DPG Logo" />
           </a>
           </div>
-          
-          <div className='zap'>
-          <a href="https://zapcontabil.com/" target="_blank" rel="noopener noreferrer">
-            <img src="logo-zapcontabil.png" alt="Zapcontabil Logo" />
+          <div className="logo2">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <img src="zap.png" alt="Zap Logo" />
           </a>
           </div>
-          </div>
-          
-      <div className="endNote">
-        <div>
-        <h4>COMHUB 2023 © Todos os direitos reservados</h4>
-        </div>
       </div>
-      
+      <div className="rodape">
+        <h4>Todos os direitos reservados 2023</h4>
+      </div>
     </footer>
   );
 };
