@@ -33,15 +33,15 @@ const AddUrlComponent = () => {
         else {
     
           const data = {
-            origUrl: url
-            //shortTitle: title, // Utiliza o valor do título como shortTitle
+            origUrl: url,
+            shortTitle: title, // Utiliza o valor do título como shortTitle
           };
     
-          //axios
-          //.post('http://localhost:3333/check-url', { urlId: title })
-          //.then((res) => {
+          axios
+          .post('http://localhost:3333/check-url', { urlId: title })
+          .then((res) => {
             // Se o URL estiver disponível (não existe no banco de dados), então pode enviar os dados para criar o URL encurtado
-            axios.post('https://api.innovlink.click/short', data)
+            axios.post('http://localhost:3333/short', data)
             .then(response => {
 
               const notify = () => toast.success("URL encurtada com sucesso!");
@@ -59,10 +59,11 @@ const AddUrlComponent = () => {
               console.error('Erro ao encurtar URL:', error);
               
             });
-          /*})
+          })
           .catch((err) => {
-             // Trate o erro caso ocorra uma falha na verificação do URL
-          }); */
+            const notify = () => toast.error("Titulo indisponivel!");
+            notify();
+          }); 
       }
         
         setUrl("https://");
