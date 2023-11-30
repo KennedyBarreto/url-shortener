@@ -11,7 +11,12 @@ dotenv.config();
 const app = express();
 
 // cors for cross-origin requests to the frontend application
-app.use(cors({ origin: "*"}));
+const corsOptions = {
+  origin: '*', // ou '*', para permitir de qualquer origem
+  optionsSuccessStatus: 200 // Alguns navegadores antigos podem exigir isso
+};
+
+app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
 
