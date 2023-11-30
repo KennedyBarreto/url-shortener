@@ -10,7 +10,6 @@ function App() {
     
     <div className="App">
       <AddUrlComponent />
-      <ViewUrlComponent />
       <ToastContainer theme="colored"/>
       <FooterComponent/>
     </div>

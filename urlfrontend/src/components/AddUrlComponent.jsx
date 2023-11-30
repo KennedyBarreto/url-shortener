@@ -1,53 +1,56 @@
-import React, { useState, useContext } from 'react'
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BooleanContext } from '../context/StateContext';
-
 
 const AddUrlComponent = () => {
     const [url, setUrl] = useState("https://");
+    const [urls, setUrls] = useState([]);
     const [title, setTitle] = useState(); //novo state de teste pro titulo
-    const { toggleBooleanValue } = useContext(BooleanContext);
-    
+
     const onSubmit = (e)=> {
-      toggleBooleanValue();
+
         e.preventDefault();
-       
         if (!url) {
           const notify = () => toast.error("Campo em Branco");
           notify();
           return;
-        } else if (url.substring(0,7) !== "http://" && url.substring(0,8) !== "https://"){
-          const notify = () => toast.error("A URL deve começar com http:// ou https://");
-          notify();
-          return;
         }
-          else if (url.length<=8){
-          const notify = () => toast.error("Digite uma URL para começar!");
-          notify();
-          return;
-        } 
           else {
-          const notify = () => toast.success("URL encurtada com sucesso!");
-          notify();
-          localStorage.setItem("url", url);
-
-        axios
-          .post("http://localhost:3333/short", {origUrl: url, shortTitle: title}) //add o parametro title na chamada do endpoint
-          .then(res => {
-            
-          })
-          .catch(err => {
-            console.log(err.message);
-          });
+    
+          const data = {
+            origUrl: url,
+            shortTitle: title, // Utiliza o valor do título como shortTitle
+          };
+    
+          //axios
+          //.post('http://localhost:3333/check-url', { urlId: title })
+          //.then((res) => {
+            // Se o URL estiver disponível (não existe no banco de dados), então pode enviar os dados para criar o URL encurtado
+            axios.post('http://localhost:3333/short', data)
+            .then(response => {
+              const shortenedUrl = response.data; // Obtém as respostas
+        
+              // Atualiza o estado Link com o URL encurtado retornado pelo servidor
+              setUrls(prevUrls => [...prevUrls, shortenedUrl]);
+              
+        
+              // Limpa a mensagem de erro, se houver
+              
+            })
+            .catch(error => {
+              console.error('Erro ao encurtar URL:', error);
+              
+            });
+          /*})
+          .catch((err) => {
+             // Trate o erro caso ocorra uma falha na verificação do URL
+          }); */
+      };
         
         setUrl("https://");
         
       }
-    }
-    
-    console.log(url)
 
   return (
     <div>
@@ -90,6 +93,30 @@ const AddUrlComponent = () => {
       </form>
     </section>
   </main>
+
+
+  <div className="UrlResult container justify-content-center align-items-center w-50">
+
+{urls.map((url, idx) => ( //aqui vao ser renderizados os dados da requisição
+
+  <div id="resultado"
+  key={idx} className="container d-flex flex-row justify-content-center align-items-center">
+
+      
+        <p className="text-center">
+          {url.origUrl}
+        </p>
+      
+        <p className="text-center">
+            {url.shortUrl}
+        </p>
+          
+          
+
+  </div>
+))}
+
+</div>
 
 </div>
   );
