@@ -1,5 +1,5 @@
 import React from "react";
-import {FaWhatsapp, FaRegHandPointer, FaBrush, FaCreativeCommonsShare , FaAngleDoubleRight, FaAngleDoubleDown} from "react-icons/fa"
+import { FaRegHandPointer, FaBrush, FaCreativeCommonsShare , FaAngleDoubleRight, FaAngleDoubleDown} from "react-icons/fa"
 
 
 export default function Info(){
