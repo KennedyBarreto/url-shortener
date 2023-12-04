@@ -11,7 +11,7 @@
 
   <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/KennedyBarreto/url-shortener?color=af0fff">
 
- 
+  <img alt="Licença" src="https://img.shields.io/github/license/KennedyBarreto/url-shortener?color=af0fff">
 
 
 </p>
