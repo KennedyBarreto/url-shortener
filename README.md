@@ -65,18 +65,18 @@ em sua máquina e um editor de código para alterar os arquivos de configuraçã
 
 2 - Instale as dependencias
 ```bash
-cd urlbackend
+cd server
 npm i 
 cd ..
-cd urlfrontend
+cd client
 npm i
 ```
 3 - Inicie o servidor node e o react
 ```bash
-cd urlbackend
-node index.js
+cd server
+npm start
 cd ..
-cd urlfrontend
+cd client
 npm start
 ```
 
