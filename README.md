@@ -13,10 +13,7 @@
 
   <img alt="Licença" src="https://img.shields.io/github/license/KennedyBarreto/url-shortener?color=af0fff">
 
-
 </p>
-
-
 
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
@@ -30,21 +27,19 @@
 
 <br>
 
-## :dart: Sobre ##
+## :dart: Sobre
 
 Encurtador de Urls feito com ReactJs & NodeJs, a estilização é feita com o framework Bootstrap,
 as requisições com o Axios e o banco de dados com o MongoDB
 
-## :sparkles: Funcionalidades ##
+## :sparkles: Funcionalidades
 
 :heavy_check_mark: Encurta Links diversos; <br>
 :heavy_check_mark: Acompanha o número de clicks; <br>
 :heavy_check_mark: Copia o link encurtado para a área de transferência;<br>
 :heavy_check_mark: Gera um QR Code baixável com redirecionamento para o link<br>
 
-
-
-## :rocket: Tecnologias ##
+## :rocket: Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -54,24 +49,27 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [ReactJS](https://react.dev/)
 - [NodeJS](https://nodejs.org/en)
 
-## :white_check_mark: Pré requisitos ##
+## :white_check_mark: Pré requisitos
 
 Certifique-se de que você possui o <a href="https://nodejs.org/en">Node.js 20</a> instalado
 em sua máquina e um editor de código para alterar os arquivos de configuração
 
-## :checkered_flag: Começando ##
+## :checkered_flag: Começando
 
-1 - Clone/Copie o repositório em sua máquina 
+1 - Clone/Copie o repositório em sua máquina
 
 2 - Instale as dependencias
+
 ```bash
 cd server
-npm i 
+npm i
 cd ..
 cd client
 npm i
 ```
+
 3 - Inicie o servidor node e o react
+
 ```bash
 cd server
 npm start
@@ -80,10 +78,9 @@ cd client
 npm start
 ```
 
-<!--  ## :memo: Licença ##
+## :memo: Licença
 
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes. -->
-
+Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 Feito com :heart: por <a href="https://github.com/KennedyBarreto" target="_blank">Kennedy Barreto</a>
 
