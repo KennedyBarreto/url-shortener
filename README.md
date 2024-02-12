@@ -30,7 +30,8 @@
 ## :dart: Sobre
 
 Encurtador de Urls feito com ReactJs & NodeJs, a estilização é feita com o framework Bootstrap,
-as requisições com o Axios e o banco de dados com o MongoDB
+as requisições com Express & Axios e para o armazenamento dos links um banco de dados MongoDB usando
+a plataforma Atlas
 
 ## :sparkles: Funcionalidades
 
